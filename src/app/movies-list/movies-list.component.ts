@@ -15,7 +15,7 @@ isShown: boolean = false
   
   constructor(private rest:RestAPIService,
     private moviedetailsservice : MovieDetailsService,
-    private router: Router,) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.getGenres()
