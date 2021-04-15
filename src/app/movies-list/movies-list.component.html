@@ -1,0 +1,19 @@
+<html>
+
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <div *ngFor="let genres of genresList.genres">
+                <a class="navbar" style="display: none;">{{genres.id}}</a>
+                <a (click)="getMovies(genres.id)">{{genres.name}}</a>
+            </div>
+        </div>
+</div>
+</body>
+
+<div style="text-align: center;" *ngFor="let movies of moviesList.results">
+    <a style="display: none;">{{movies.id}}</a>
+    <a (click)="getMovieDetails(movies.id)">{{movies.original_title}}</a>
+</div>
+</html>
