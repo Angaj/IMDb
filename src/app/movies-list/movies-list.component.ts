@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestAPIService } from './../restAPI.service';
+import { Router } from  '@angular/router';
 import { MovieDetailsService } from './../movie-details.service';
 
 @Component({
@@ -13,7 +14,8 @@ genresList = <any>[];
 isShown: boolean = false 
   
   constructor(private rest:RestAPIService,
-    private moviedetailsservice : MovieDetailsService) { }
+    private moviedetailsservice : MovieDetailsService,
+    private router: Router,) { }
 
   ngOnInit() {
     this.getGenres()
@@ -40,6 +42,7 @@ getMovies(id){
   this.moviedetailsservice.getMovieDetails(movie_id).subscribe(resp=>{
     this.moviesList =resp
     console.log(this.moviesList)
+    this.router.navigateByUrl('/details');
   })
   }
 }
